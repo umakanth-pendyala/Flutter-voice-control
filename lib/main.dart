@@ -78,6 +78,10 @@ class _VoiceHomeState extends State<VoiceHome> {
       },
     );
 
+    _speechRecognition.setErrorHandler(() {
+      initSpeechRecognizer();
+    });
+
     _speechRecognition.activate().then(
           (result) => setState(() => _isAvailable = result),
         );
